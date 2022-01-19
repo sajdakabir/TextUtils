@@ -7,32 +7,37 @@ export default function TextFrom(props) {
   function handleUpClick() {
     const newText = text.toUpperCase();
     setText(newText);
+    props.showAlert("Converted to uppercase!","success")
   }
   function handleLwClick() {
     const newText = text.toLowerCase();
     setText(newText);
+    props.showAlert("Converted to Lowercase!","success")
   }
   function handleClClick() {
     const newText = "";
     setText(newText);
+    props.showAlert("Clear text!!","success")
   }
   function handleCpClick() {
     const text = document.getElementById("myBox");
     text.select();
-
     navigator.clipboard.writeText(text.value);
+    props.showAlert("Copy text by clipbord","success")
   }
   const handleExtraSpace = () => {
     const newText = text.split(/[ ]+/);
     setText(newText.join(" "));
+    props.showAlert("Remove extra spacce","success")
   };
-  const handleCapClick = () => {
-    const newText = text
-      .split(" ")
-      .map((word) => word[0].toUpperCase() + word.slice(1).toLowerCase())
-      .join(" ");
-    setText(newText);
-  };
+  // const handleCapClick = () => {
+  //   const newText = text
+  //     .split(" ")
+  //     .map((word) => word[0].toUpperCase() + word.slice(1).toLowerCase())
+  //     .join(" ");
+  //   setText(newText);
+  //   props.showAlert("Converted to Capitalize case!","success")
+  // };
   const [text, setText] = useState("");
   return (
     <>
@@ -66,9 +71,9 @@ export default function TextFrom(props) {
           <button className="btn btn-dark my-3 mx-2" onClick={handleLwClick}>
             Convert to Lowercase
           </button>
-          <button className="btn btn-dark my-3 mx-2" onClick={handleCapClick}>
+          {/* <button className="btn btn-dark my-3 mx-2" onClick={handleCapClick}>
             Convert to Capitalize Case
-          </button>
+          </button> */}
           <button className="btn btn-dark my-3 mx-2" onClick={handleCpClick}>
             Copy text
           </button>
