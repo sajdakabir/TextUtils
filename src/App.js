@@ -20,14 +20,15 @@ function App() {
   const toggleMode = () => {
     if (mode === "light") {
       setMode("dark");
-
       // document.body.style.backgroundColor='#0E0D5D';
       document.body.style.backgroundColor = "#0C0032";
-      showAlert("Dark mode has been enable","success")
+      showAlert("Dark mode has been enable","success");
+      document.title='TextUtlis - Dark Mode';
     } else {
       setMode("light");
       document.body.style.backgroundColor = "white";
-      showAlert("Light mode has been enable","success")
+      showAlert("Light mode has been enable","success");
+      document.title='Textutils - Light Mode'
     }
   };
 
