@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import { BrowserRouter , Switch, Route, Link , Routes} from "react-router-dom";
+import { BrowserRouter , Switch, Route, Link , Routes} from "react-router-dom";
 
 import "./App.css";
 import Navbar from "./components/Navbar";
@@ -36,7 +36,7 @@ function App() {
 
   return (
     <>
-      {/* <BrowserRouter> */}
+      <BrowserRouter>
         <Navbar
           title="Textutils"
           aboutText="About Us"
@@ -45,8 +45,8 @@ function App() {
         />
         <Alert alert={alert} />
         <div className="container my-3">
-          {/* <Routes>
-            <Route path="/about" element={<About />} />
+          <Routes>
+            <Route path="/about" element={<About  mode={mode}/>} />
             <Route path="/"
             element={<TextFrom
                 showAlert={showAlert}
@@ -54,14 +54,14 @@ function App() {
                 mode={mode}
               />}  />
             
-          </Routes> */}
-          <TextFrom
+          </Routes>
+          {/* <TextFrom
                 showAlert={showAlert}
                 heading="Enter the text to analyze below"
                 mode={mode}
-              />
+              /> */}
         </div>
-      {/* </BrowserRouter> */}
+      </BrowserRouter>
     </>
   );
 }

@@ -65,22 +65,22 @@ export default function TextFrom(props) {
             id="myBox"
             rows="8"
           ></textarea>
-          <button className="btn btn-dark my-3" onClick={handleUpClick}>
+          <button className="btn btn-dark my-1 mx-2" onClick={handleUpClick}>
             Convert to Uppercase
           </button>
-          <button className="btn btn-dark my-3 mx-2" onClick={handleLwClick}>
+          <button className="btn btn-dark my-1 mx-2" onClick={handleLwClick}>
             Convert to Lowercase
           </button>
           {/* <button className="btn btn-dark my-3 mx-2" onClick={handleCapClick}>
             Convert to Capitalize Case
           </button> */}
-          <button className="btn btn-dark my-3 mx-2" onClick={handleCpClick}>
+          <button className="btn btn-dark my-1 mx-2" onClick={handleCpClick}>
             Copy text
           </button>
-          <button className="btn btn-dark my-3 mx-2" onClick={handleExtraSpace}>
+          <button className="btn btn-dark my-1 mx-2" onClick={handleExtraSpace}>
             Remove Extra Space
           </button>
-          <button className="btn btn-dark my-3 mx-2" onClick={handleClClick}>
+          <button className="btn btn-dark my-1 mx-2" onClick={handleClClick}>
             Clear text
           </button>
         </div>
@@ -91,9 +91,9 @@ export default function TextFrom(props) {
       >
         <h1>Your text summery</h1>
         <p>
-          {text.split(" ").length - 1} Words and {text.length} Characters
+          {text.split("/\s+/").filter((element)=>element.length!==0).length } Words and {text.length} Characters
         </p>
-        <p>{0.008 * (text.split(" ").length - 1)} Minutes to read</p>
+        <p>{0.008 * (text.split("/\s+/").filter((element)=>element.length!==0).length )} Minutes to read</p>
         <h2>Preview</h2>
         <p>{text.length > 0 ? text : "write somthing to see preview"}</p>
       </div>
